@@ -12,6 +12,7 @@ import (
 	"time"
 
 	"github.com/hemanth-1321/rest-api/internal/config"
+	"github.com/hemanth-1321/rest-api/internal/http/student"
 )
 
 
@@ -21,11 +22,7 @@ func main(){
 	fmt.Printf("Loaded config: %+v\n", cfg)
 
  router:=http.NewServeMux()
- router.HandleFunc("GET /",func(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("hello from go"))
-
-
- })
+ router.HandleFunc("POST /api/student",student.New())
 
 
  server:=http.Server{
